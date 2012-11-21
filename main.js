@@ -1,5 +1,5 @@
 function initPlayers(myWindow, myGameloop) {
-	var myPlayer1 = new Player({player:1});
+	var myPlayer1 = new Player({player:1}, myWindow.getCanvas().width, myWindow.getCanvas().height);
 	var myPlayer2 = new Player({player:2});
 
 	myWindow.addChild(myPlayer1.layer);
@@ -8,14 +8,14 @@ function initPlayers(myWindow, myGameloop) {
 	myGameloop.object.push(myPlayer1);
 	myGameloop.object.push(myPlayer2);
 
-	myPlayer1.layer.setPosition(0, 0);
+	myPlayer1.layer.setPosition(150, 100);
 	myPlayer2.layer.setPosition(650, 100);
 }
 
-function initBackground(myWindow, context) {
+function initBackground(myWindow, myGameloop, context) {
 	var myBackground = new Background(context);
-
 	myWindow.addChild(myBackground.layer);
+	myGameloop.object.push(myBackground);
 }
 
 function main()
@@ -25,15 +25,15 @@ function main()
 	var myWindow = new TW.Graphic.Window(myCanvas);
 	var myGameloop = new TW.Gameloop.Gameloop();
 
-	initBackground(myWindow, myCanvasContext);
+
 	initPlayers(myWindow, myGameloop);
-
-
-	myGameloop.object.push(myWindow);
+	initBackground(myWindow, myGameloop, myCanvasContext);
+	myGameloop.setf
 	myGameloop.start();
+	myGameloop.object.push(myWindow);
+
 }
 
-window.onload = function()
-{
+window.onload = function() {
 	main();
 };
