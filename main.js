@@ -18,6 +18,14 @@ function initBackground(myWindow, myGameloop, context) {
 	myGameloop.object.push(myBackground);
 }
 
+function initBall(myWindow, myGameloop) {
+	var myBall = new Ball({radius:20});
+
+	myBall.layer.setPosition(300, 0);
+	myWindow.addChild(myBall.layer);
+	myGameloop.object.push(myBall);
+}
+
 function main()
 {
 	var myCanvas = document.getElementById("canvas");
@@ -28,7 +36,8 @@ function main()
 
 	initPlayers(myWindow, myGameloop);
 	initBackground(myWindow, myGameloop, myCanvasContext);
-	myGameloop.setf
+	initBall(myWindow, myGameloop);
+
 	myGameloop.start();
 	myGameloop.object.push(myWindow);
 

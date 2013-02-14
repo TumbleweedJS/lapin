@@ -1,6 +1,6 @@
 function Player(param, width, height) {
 	this._player = param.player ? param.player : 1;
-	this._radius = param._radius ? param._radius : 75;
+	this._radius = param._radius ? param._radius : 50;
 	this._speed = param._speed ? param._speed : 10;
 
 	// Slim creation
@@ -83,7 +83,7 @@ Player.prototype.moveRight = function (event, value, provider) {
 
 Player.prototype.moveUp = function (event, value, provider) {
 	if (this._jumping === false && this._vs.y === 0) {
-		this._vs.y = -20;
+		this._vs.y = -15;
 		this._jumping = true;
 	}
 };
